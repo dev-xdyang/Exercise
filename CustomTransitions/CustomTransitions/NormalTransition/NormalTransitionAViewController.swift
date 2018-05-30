@@ -37,7 +37,7 @@ extension NormalTransitionAViewController: UIViewControllerTransitioningDelegate
         case .dissolve:
             return DissolveTransitionAnimator()
         case .halfWaySpring:
-            return HalfWaySpringTransitionAnimator(transitionType: .presenting)
+            return HalfWaySpringTransitionAnimator()
         }
     }
     
@@ -46,7 +46,7 @@ extension NormalTransitionAViewController: UIViewControllerTransitioningDelegate
         case .dissolve:
             return DissolveTransitionAnimator()
         case .halfWaySpring:
-            return HalfWaySpringTransitionAnimator(transitionType: .dismiss)
+            return HalfWaySpringTransitionAnimator()
         }
     }
 }

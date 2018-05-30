@@ -8,16 +8,7 @@
 
 import UIKit
 
-class HalfWaySpringTransitionAnimator: NSObject {
-    private let transitionType: TransitionType
-    
-    init(transitionType: TransitionType) {
-        self.transitionType = transitionType
-        super.init()
-    }
-}
-
-extension HalfWaySpringTransitionAnimator: UIViewControllerAnimatedTransitioning {
+class HalfWaySpringTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.35
     }
@@ -30,9 +21,9 @@ extension HalfWaySpringTransitionAnimator: UIViewControllerAnimatedTransitioning
         
         let containerView = transitionContext.containerView
         let duration = transitionDuration(using: transitionContext)
+        let isPresenting = toVC.presentingViewController == fromVC
         
-        switch transitionType {
-        case .presenting:
+        if isPresenting {
             containerView.addSubview(toView)
             
             fromView.frame = transitionContext.initialFrame(for: fromVC)
@@ -50,7 +41,7 @@ extension HalfWaySpringTransitionAnimator: UIViewControllerAnimatedTransitioning
                 let canceled = transitionContext.transitionWasCancelled
                 transitionContext.completeTransition(!canceled)
             }
-        case .dismiss:
+        } else {
             containerView.insertSubview(toView, belowSubview: fromView)
             
             toView.frame = transitionContext.finalFrame(for: toVC)
