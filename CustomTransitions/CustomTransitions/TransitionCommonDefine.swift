@@ -8,9 +8,11 @@
 
 import Foundation
 
-enum TransitionType {
-    case presenting
-    case dismiss
+enum Direction {
+    case toLeft
+    case toRight
+    case toTop
+    case toBottom
 }
 
 enum AnimatorType {

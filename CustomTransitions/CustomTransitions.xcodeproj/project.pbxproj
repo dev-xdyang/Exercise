@@ -19,7 +19,12 @@
 		CB12EF2F20BE8C5600D4E160 /* NormalTransitionBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB12EF2E20BE8C5500D4E160 /* NormalTransitionBViewController.swift */; };
 		CB12EF3420BE8C9E00D4E160 /* HalfWaySpringTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB12EF3320BE8C9E00D4E160 /* HalfWaySpringTransitionAnimator.swift */; };
 		CB12EF3620BE8CB800D4E160 /* DissolveTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB12EF3520BE8CB800D4E160 /* DissolveTransitionAnimator.swift */; };
-		CB12EF3820BE8EB300D4E160 /* NormalTransitionCommonDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB12EF3720BE8EB300D4E160 /* NormalTransitionCommonDefine.swift */; };
+		CB12EF3820BE8EB300D4E160 /* TransitionCommonDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB12EF3720BE8EB300D4E160 /* TransitionCommonDefine.swift */; };
+		CB12EF3C20BEC13800D4E160 /* InteractiveTransitionAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB12EF3A20BEC13800D4E160 /* InteractiveTransitionAViewController.swift */; };
+		CB12EF3D20BEC13800D4E160 /* InteractiveTransitionBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB12EF3B20BEC13800D4E160 /* InteractiveTransitionBViewController.swift */; };
+		CB12EF4020BECF3100D4E160 /* PushPopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB12EF3F20BECF3100D4E160 /* PushPopAnimator.swift */; };
+		CB12EF4220BECF5500D4E160 /* PanInterativeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB12EF4120BECF5500D4E160 /* PanInterativeDelegate.swift */; };
+		CB12EF4420BECF6600D4E160 /* PanInterativeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB12EF4320BECF6600D4E160 /* PanInterativeController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +63,12 @@
 		CB12EF2E20BE8C5500D4E160 /* NormalTransitionBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalTransitionBViewController.swift; sourceTree = "<group>"; };
 		CB12EF3320BE8C9E00D4E160 /* HalfWaySpringTransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfWaySpringTransitionAnimator.swift; sourceTree = "<group>"; };
 		CB12EF3520BE8CB800D4E160 /* DissolveTransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DissolveTransitionAnimator.swift; sourceTree = "<group>"; };
-		CB12EF3720BE8EB300D4E160 /* NormalTransitionCommonDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalTransitionCommonDefine.swift; sourceTree = "<group>"; };
+		CB12EF3720BE8EB300D4E160 /* TransitionCommonDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionCommonDefine.swift; sourceTree = "<group>"; };
+		CB12EF3A20BEC13800D4E160 /* InteractiveTransitionAViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractiveTransitionAViewController.swift; sourceTree = "<group>"; };
+		CB12EF3B20BEC13800D4E160 /* InteractiveTransitionBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractiveTransitionBViewController.swift; sourceTree = "<group>"; };
+		CB12EF3F20BECF3100D4E160 /* PushPopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushPopAnimator.swift; sourceTree = "<group>"; };
+		CB12EF4120BECF5500D4E160 /* PanInterativeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanInterativeDelegate.swift; sourceTree = "<group>"; };
+		CB12EF4320BECF6600D4E160 /* PanInterativeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanInterativeController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,9 +119,11 @@
 		CB12EEF620BE7D8400D4E160 /* CustomTransitions */ = {
 			isa = PBXGroup;
 			children = (
+				CB12EF3920BEC0D900D4E160 /* InteractiveTransition */,
 				CB12EF2B20BE8C1900D4E160 /* NormalTransition */,
 				CB12EF2620BE889200D4E160 /* List */,
 				CB12EEF720BE7D8400D4E160 /* AppDelegate.swift */,
+				CB12EF3720BE8EB300D4E160 /* TransitionCommonDefine.swift */,
 				CB12EEFB20BE7D8400D4E160 /* Main.storyboard */,
 				CB12EEFE20BE7D8700D4E160 /* Assets.xcassets */,
 				CB12EF0020BE7D8700D4E160 /* LaunchScreen.storyboard */,
@@ -166,7 +178,6 @@
 		CB12EF2B20BE8C1900D4E160 /* NormalTransition */ = {
 			isa = PBXGroup;
 			children = (
-				CB12EF3720BE8EB300D4E160 /* NormalTransitionCommonDefine.swift */,
 				CB12EF2C20BE8C3C00D4E160 /* NormalTransitionAViewController.swift */,
 				CB12EF2E20BE8C5500D4E160 /* NormalTransitionBViewController.swift */,
 				CB12EF3020BE8C5A00D4E160 /* Animator */,
@@ -181,6 +192,26 @@
 				CB12EF3520BE8CB800D4E160 /* DissolveTransitionAnimator.swift */,
 			);
 			path = Animator;
+			sourceTree = "<group>";
+		};
+		CB12EF3920BEC0D900D4E160 /* InteractiveTransition */ = {
+			isa = PBXGroup;
+			children = (
+				CB12EF3A20BEC13800D4E160 /* InteractiveTransitionAViewController.swift */,
+				CB12EF3B20BEC13800D4E160 /* InteractiveTransitionBViewController.swift */,
+				CB12EF3E20BEC13B00D4E160 /* Animator & TransitionDelegate & interactionController */,
+			);
+			path = InteractiveTransition;
+			sourceTree = "<group>";
+		};
+		CB12EF3E20BEC13B00D4E160 /* Animator & TransitionDelegate & interactionController */ = {
+			isa = PBXGroup;
+			children = (
+				CB12EF3F20BECF3100D4E160 /* PushPopAnimator.swift */,
+				CB12EF4120BECF5500D4E160 /* PanInterativeDelegate.swift */,
+				CB12EF4320BECF6600D4E160 /* PanInterativeController.swift */,
+			);
+			path = "Animator & TransitionDelegate & interactionController";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,12 +346,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB12EF3420BE8C9E00D4E160 /* HalfWaySpringTransitionAnimator.swift in Sources */,
-				CB12EF3820BE8EB300D4E160 /* NormalTransitionCommonDefine.swift in Sources */,
+				CB12EF3820BE8EB300D4E160 /* TransitionCommonDefine.swift in Sources */,
+				CB12EF3C20BEC13800D4E160 /* InteractiveTransitionAViewController.swift in Sources */,
+				CB12EF4220BECF5500D4E160 /* PanInterativeDelegate.swift in Sources */,
+				CB12EF3D20BEC13800D4E160 /* InteractiveTransitionBViewController.swift in Sources */,
 				CB12EF2D20BE8C3C00D4E160 /* NormalTransitionAViewController.swift in Sources */,
 				CB12EEFA20BE7D8400D4E160 /* ViewController.swift in Sources */,
 				CB12EF3620BE8CB800D4E160 /* DissolveTransitionAnimator.swift in Sources */,
+				CB12EF4420BECF6600D4E160 /* PanInterativeController.swift in Sources */,
 				CB12EEF820BE7D8400D4E160 /* AppDelegate.swift in Sources */,
 				CB12EF2A20BE88BB00D4E160 /* ListTableViewCell.swift in Sources */,
+				CB12EF4020BECF3100D4E160 /* PushPopAnimator.swift in Sources */,
 				CB12EF2F20BE8C5600D4E160 /* NormalTransitionBViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

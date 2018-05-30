@@ -128,6 +128,47 @@
             </objects>
             <point key="canvasLocation" x="788" y="31"/>
         </scene>
+        <!--Interactive TransitionA View Controller-->
+        <scene sceneID="mlP-xm-KZT">
+            <objects>
+                <viewController storyboardIdentifier="InteractiveTransitionAViewController" id="fN6-Ts-OFe" customClass="InteractiveTransitionAViewController" customModule="CustomTransitions" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AmL-aN-YOS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJ0-s7-HtR">
+                                <rect key="frame" x="168" y="297.5" width="38.5" height="72"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K5M-mf-L8g">
+                                <rect key="frame" x="157.5" y="419.5" width="60" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="W2A-aO-Pvj"/>
+                                    <constraint firstAttribute="height" constant="44" id="dYz-xt-7zR"/>
+                                </constraints>
+                                <state key="normal" title="present"/>
+                                <connections>
+                                    <action selector="presentButtonPressed:" destination="fN6-Ts-OFe" eventType="touchUpInside" id="h71-IF-Oxd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.45085787770000002" green="0.98829740290000001" blue="0.83763033149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="RJ0-s7-HtR" firstAttribute="centerY" secondItem="AmL-aN-YOS" secondAttribute="centerY" id="6Q9-hq-vCh"/>
+                            <constraint firstItem="K5M-mf-L8g" firstAttribute="top" secondItem="RJ0-s7-HtR" secondAttribute="bottom" constant="50" id="Clr-BF-ZHc"/>
+                            <constraint firstItem="K5M-mf-L8g" firstAttribute="centerX" secondItem="AmL-aN-YOS" secondAttribute="centerX" id="ePN-bs-AIn"/>
+                            <constraint firstItem="RJ0-s7-HtR" firstAttribute="centerX" secondItem="AmL-aN-YOS" secondAttribute="centerX" id="wG2-gl-zQh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="TjS-fQ-Ze5"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ll4-ma-VqW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="788" y="706"/>
+        </scene>
         <!--Normal TransitionB View Controller-->
         <scene sceneID="w7A-nQ-fUn">
             <objects>
@@ -168,6 +209,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ckv-ah-g0g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1508" y="30"/>
+        </scene>
+        <!--Interactive TransitionB View Controller-->
+        <scene sceneID="zlG-pe-3hL">
+            <objects>
+                <viewController storyboardIdentifier="InteractiveTransitionBViewController" id="3Or-3Q-4Gz" customClass="InteractiveTransitionBViewController" customModule="CustomTransitions" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sdj-sO-Ult">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2jb-zF-Dae">
+                                <rect key="frame" x="169" y="297.5" width="37" height="72"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UbE-j4-zSl">
+                                <rect key="frame" x="157.5" y="429.5" width="60" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="7Yv-fp-FFh"/>
+                                    <constraint firstAttribute="height" constant="44" id="BwQ-JO-OT9"/>
+                                </constraints>
+                                <state key="normal" title="dismiss"/>
+                                <connections>
+                                    <action selector="dismissButtonPressed:" destination="3Or-3Q-4Gz" eventType="touchUpInside" id="DGh-rN-uWJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="UbE-j4-zSl" firstAttribute="top" secondItem="2jb-zF-Dae" secondAttribute="bottom" constant="60" id="Fmw-r3-aAi"/>
+                            <constraint firstItem="2jb-zF-Dae" firstAttribute="centerX" secondItem="sdj-sO-Ult" secondAttribute="centerX" id="Ms3-Lf-jmk"/>
+                            <constraint firstItem="2jb-zF-Dae" firstAttribute="centerY" secondItem="sdj-sO-Ult" secondAttribute="centerY" id="Sg0-ik-F78"/>
+                            <constraint firstItem="UbE-j4-zSl" firstAttribute="centerX" secondItem="sdj-sO-Ult" secondAttribute="centerX" id="ia6-B4-Dg9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="abb-yF-heV"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f4O-R6-HbA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1508" y="706"/>
         </scene>
     </scenes>
 </document>

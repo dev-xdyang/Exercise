@@ -11,7 +11,8 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
-    private let itemList = ["dissolve", "half way spring", "present: half way spring; dismiss: dissolve"]
+    private let itemList = ["dissolve", "half way spring", "present: half way spring; dismiss: dissolve",
+                            "interative: Swipe"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,24 +40,38 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        func normalViewController() -> NormalTransitionAViewController? {
+            return self.storyboard?.instantiateViewController(withIdentifier: "NormalTransitionAViewController") as? NormalTransitionAViewController
+        }
+        
         tableView.deselectRow(at: indexPath, animated: true)
         
         guard indexPath.row < itemList.count else { return }
-        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "NormalTransitionAViewController") as? NormalTransitionAViewController else { return }
+        var vc: UIViewController? = nil
         switch indexPath.row {
         case 0:
-            vc.presentingAnimatorType = .dissolve
-            vc.dismissAnimatorType = .dissolve
+            let normalVC = normalViewController()
+            normalVC?.presentingAnimatorType = .dissolve
+            normalVC?.dismissAnimatorType = .dissolve
+            vc = normalVC
         case 1:
-            vc.presentingAnimatorType = .halfWaySpring
-            vc.dismissAnimatorType = .halfWaySpring
+            let normalVC = normalViewController()
+            normalVC?.presentingAnimatorType = .halfWaySpring
+            normalVC?.dismissAnimatorType = .halfWaySpring
+            vc = normalVC
         case 2:
-            vc.presentingAnimatorType = .halfWaySpring
-            vc.dismissAnimatorType = .dissolve
+            let normalVC = normalViewController()
+            normalVC?.presentingAnimatorType = .halfWaySpring
+            normalVC?.dismissAnimatorType = .dissolve
+            vc = normalVC
+        case 3:
+            vc = self.storyboard?.instantiateViewController(withIdentifier: "InteractiveTransitionAViewController") as? InteractiveTransitionAViewController
         default:
             break
         }
-        navigationController?.pushViewController(vc, animated: true)
+        if let gotoVC = vc {
+            navigationController?.pushViewController(gotoVC, animated: true)
+        }
     }
 }
 
