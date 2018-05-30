@@ -14,6 +14,12 @@
 		CB12EF0220BE7D8700D4E160 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB12EF0020BE7D8700D4E160 /* LaunchScreen.storyboard */; };
 		CB12EF0D20BE7D8700D4E160 /* CustomTransitionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB12EF0C20BE7D8700D4E160 /* CustomTransitionsTests.swift */; };
 		CB12EF1820BE7D8700D4E160 /* CustomTransitionsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB12EF1720BE7D8700D4E160 /* CustomTransitionsUITests.swift */; };
+		CB12EF2A20BE88BB00D4E160 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB12EF2920BE88BB00D4E160 /* ListTableViewCell.swift */; };
+		CB12EF2D20BE8C3C00D4E160 /* NormalTransitionAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB12EF2C20BE8C3C00D4E160 /* NormalTransitionAViewController.swift */; };
+		CB12EF2F20BE8C5600D4E160 /* NormalTransitionBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB12EF2E20BE8C5500D4E160 /* NormalTransitionBViewController.swift */; };
+		CB12EF3420BE8C9E00D4E160 /* HalfWaySpringTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB12EF3320BE8C9E00D4E160 /* HalfWaySpringTransitionAnimator.swift */; };
+		CB12EF3620BE8CB800D4E160 /* DissolveTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB12EF3520BE8CB800D4E160 /* DissolveTransitionAnimator.swift */; };
+		CB12EF3820BE8EB300D4E160 /* NormalTransitionCommonDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB12EF3720BE8EB300D4E160 /* NormalTransitionCommonDefine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +53,12 @@
 		CB12EF1320BE7D8700D4E160 /* CustomTransitionsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomTransitionsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB12EF1720BE7D8700D4E160 /* CustomTransitionsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTransitionsUITests.swift; sourceTree = "<group>"; };
 		CB12EF1920BE7D8700D4E160 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB12EF2920BE88BB00D4E160 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		CB12EF2C20BE8C3C00D4E160 /* NormalTransitionAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalTransitionAViewController.swift; sourceTree = "<group>"; };
+		CB12EF2E20BE8C5500D4E160 /* NormalTransitionBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalTransitionBViewController.swift; sourceTree = "<group>"; };
+		CB12EF3320BE8C9E00D4E160 /* HalfWaySpringTransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfWaySpringTransitionAnimator.swift; sourceTree = "<group>"; };
+		CB12EF3520BE8CB800D4E160 /* DissolveTransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DissolveTransitionAnimator.swift; sourceTree = "<group>"; };
+		CB12EF3720BE8EB300D4E160 /* NormalTransitionCommonDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalTransitionCommonDefine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +109,9 @@
 		CB12EEF620BE7D8400D4E160 /* CustomTransitions */ = {
 			isa = PBXGroup;
 			children = (
+				CB12EF2B20BE8C1900D4E160 /* NormalTransition */,
+				CB12EF2620BE889200D4E160 /* List */,
 				CB12EEF720BE7D8400D4E160 /* AppDelegate.swift */,
-				CB12EEF920BE7D8400D4E160 /* ViewController.swift */,
 				CB12EEFB20BE7D8400D4E160 /* Main.storyboard */,
 				CB12EEFE20BE7D8700D4E160 /* Assets.xcassets */,
 				CB12EF0020BE7D8700D4E160 /* LaunchScreen.storyboard */,
@@ -123,6 +136,51 @@
 				CB12EF1920BE7D8700D4E160 /* Info.plist */,
 			);
 			path = CustomTransitionsUITests;
+			sourceTree = "<group>";
+		};
+		CB12EF2620BE889200D4E160 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				CB12EF2820BE88A200D4E160 /* View */,
+				CB12EF2720BE889B00D4E160 /* ViewController */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		CB12EF2720BE889B00D4E160 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CB12EEF920BE7D8400D4E160 /* ViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		CB12EF2820BE88A200D4E160 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CB12EF2920BE88BB00D4E160 /* ListTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CB12EF2B20BE8C1900D4E160 /* NormalTransition */ = {
+			isa = PBXGroup;
+			children = (
+				CB12EF3720BE8EB300D4E160 /* NormalTransitionCommonDefine.swift */,
+				CB12EF2C20BE8C3C00D4E160 /* NormalTransitionAViewController.swift */,
+				CB12EF2E20BE8C5500D4E160 /* NormalTransitionBViewController.swift */,
+				CB12EF3020BE8C5A00D4E160 /* Animator */,
+			);
+			path = NormalTransition;
+			sourceTree = "<group>";
+		};
+		CB12EF3020BE8C5A00D4E160 /* Animator */ = {
+			isa = PBXGroup;
+			children = (
+				CB12EF3320BE8C9E00D4E160 /* HalfWaySpringTransitionAnimator.swift */,
+				CB12EF3520BE8CB800D4E160 /* DissolveTransitionAnimator.swift */,
+			);
+			path = Animator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,8 +314,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB12EF3420BE8C9E00D4E160 /* HalfWaySpringTransitionAnimator.swift in Sources */,
+				CB12EF3820BE8EB300D4E160 /* NormalTransitionCommonDefine.swift in Sources */,
+				CB12EF2D20BE8C3C00D4E160 /* NormalTransitionAViewController.swift in Sources */,
 				CB12EEFA20BE7D8400D4E160 /* ViewController.swift in Sources */,
+				CB12EF3620BE8CB800D4E160 /* DissolveTransitionAnimator.swift in Sources */,
 				CB12EEF820BE7D8400D4E160 /* AppDelegate.swift in Sources */,
+				CB12EF2A20BE88BB00D4E160 /* ListTableViewCell.swift in Sources */,
+				CB12EF2F20BE8C5600D4E160 /* NormalTransitionBViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
