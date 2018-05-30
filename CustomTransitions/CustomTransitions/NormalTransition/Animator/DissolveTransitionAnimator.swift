@@ -34,6 +34,9 @@ class DissolveTransitionAnimator: NSObject, UIViewControllerAnimatedTransitionin
             toView.alpha = 1
         }) { _ in
             let canceled = transitionContext.transitionWasCancelled
+            if canceled {
+                toView.removeFromSuperview()
+            }
             transitionContext.completeTransition(!canceled)
         }
     }

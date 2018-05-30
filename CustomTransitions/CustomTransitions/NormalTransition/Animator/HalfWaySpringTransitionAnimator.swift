@@ -39,6 +39,9 @@ class HalfWaySpringTransitionAnimator: NSObject, UIViewControllerAnimatedTransit
                 toView.alpha = 1
             }) { _ in
                 let canceled = transitionContext.transitionWasCancelled
+                if canceled {
+                    toView.removeFromSuperview()
+                }
                 transitionContext.completeTransition(!canceled)
             }
         } else {
@@ -56,6 +59,9 @@ class HalfWaySpringTransitionAnimator: NSObject, UIViewControllerAnimatedTransit
                                         height: fromViewFrame.height)
             }) { _ in
                 let canceled = transitionContext.transitionWasCancelled
+                if canceled {
+                    toView.removeFromSuperview()
+                }
                 transitionContext.completeTransition(!canceled)
             }
         }
