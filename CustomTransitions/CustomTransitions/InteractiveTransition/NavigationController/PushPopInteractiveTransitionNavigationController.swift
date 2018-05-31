@@ -30,5 +30,7 @@ class PushPopInteractiveTransitionNavigationController: UINavigationController {
             let panInteriveDelegate = transitioningDelegate as? PanInterativeDelegate else { return }
         panInteriveDelegate.panDirection = panDirection
         panInteriveDelegate.panGesture = panGesture
+        
+        dismiss(animated: true, completion: nil)
     }
 }
