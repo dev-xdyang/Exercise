@@ -23,11 +23,18 @@ class PanInterativeDelegate: NSObject, UIViewControllerTransitioningDelegate {
     }
     
     func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        return nil
+        if let gesture = panGesture {
+            return PanInterativeController(panDirection: panDirection, panGesture: gesture)
+        } else {
+            return nil
+        }
     }
     
-    
     func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        return nil
+        if let gesture = panGesture {
+            return PanInterativeController(panDirection: panDirection, panGesture: gesture)
+        } else {
+            return nil
+        }
     }
 }

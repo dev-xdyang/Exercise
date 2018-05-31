@@ -9,14 +9,24 @@
 import UIKit
 
 class InteractiveTransitionBViewController: UIViewController {
-    let panDirection: Direction = .toRight
-    let panGesture: UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureAction(gesture:)))
+    private let panDirection: Direction = .toRight
+    private var panGesture: UIPanGestureRecognizer!
     
-    @objc func panGestureAction(gesture: UIPanGestureRecognizer) {
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
+        panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGestureAction(gesture:)))
+        view.addGestureRecognizer(panGesture)
     }
     
-    @IBAction func dismissButtonPressed(_ sender: AnyObject) {
+    @objc private func panGestureAction(gesture: UIPanGestureRecognizer) {
+        if gesture.state == .began,
+            gesture.isMatch(direction: panDirection) {
+            dismissButtonPressed(gesture)
+        }
+    }
+    
+    @IBAction private func dismissButtonPressed(_ sender: AnyObject) {
         if let panInteriveDelegate = transitioningDelegate as? PanInterativeDelegate {
             panInteriveDelegate.panDirection = panDirection
             if sender.isKind(of: UIPanGestureRecognizer.self) {

@@ -9,19 +9,25 @@
 import UIKit
 
 class InteractiveTransitionAViewController: UIViewController {
-    let panDirection: Direction = .toLeft
-    let panGesture: UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureAction(gesture:)))
-    let panInteriveDelegate = PanInterativeDelegate()
+    private let panDirection: Direction = .toLeft
+    private var panGesture: UIPanGestureRecognizer!
+    private let panInteriveDelegate = PanInterativeDelegate()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    @objc func panGestureAction(gesture: UIPanGestureRecognizer) {
         
+        panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGestureAction(gesture:)))
+        view.addGestureRecognizer(panGesture)
     }
     
-    @IBAction func presentButtonPressed(_ sender: AnyObject) {
+    @objc private func panGestureAction(gesture: UIPanGestureRecognizer) {
+        if gesture.state == .began,
+            gesture.isMatch(direction: panDirection) {
+            presentButtonPressed(gesture)
+        }
+    }
+    
+    @IBAction private func presentButtonPressed(_ sender: AnyObject) {
         guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "InteractiveTransitionBViewController") else { return }
         vc.modalPresentationStyle = .fullScreen
         vc.transitioningDelegate = panInteriveDelegate

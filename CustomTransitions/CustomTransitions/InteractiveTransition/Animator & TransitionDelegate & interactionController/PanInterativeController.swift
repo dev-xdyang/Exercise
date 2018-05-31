@@ -10,8 +10,8 @@ import UIKit
 
 class PanInterativeController: UIPercentDrivenInteractiveTransition  {
     private var transitionContext: UIViewControllerContextTransitioning?
-    private let panDirection: Direction = .toLeft
-    private let panGesture: UIPanGestureRecognize
+    private let panDirection: Direction
+    private let panGesture: UIPanGestureRecognizer
     
     init(panDirection: Direction,
          panGesture: UIPanGestureRecognizer) {
@@ -24,11 +24,48 @@ class PanInterativeController: UIPercentDrivenInteractiveTransition  {
     
     override func startInteractiveTransition(_ transitionContext: UIViewControllerContextTransitioning) {
         self.transitionContext = transitionContext
+        
+        super.startInteractiveTransition(transitionContext)
     }
     
     @objc private func panGestureAction(gesture: UIPanGestureRecognizer) {
-        
+        switch gesture.state {
+        case .began:
+            break
+        case .changed:
+            update(percent(gesture: gesture))
+        case .ended:
+            if percent(gesture: gesture) > 0.5 {
+                finish()
+            } else {
+                cancel()
+            }
+        default:
+            cancel()
+        }
     }
     
-    
+    private func percent(gesture: UIPanGestureRecognizer) -> CGFloat {
+        guard let context = transitionContext else { return 0 }
+        
+        let containerView = context.containerView
+        let translation = gesture.translation(in: containerView)
+        let width = containerView.frame.width
+        let height = containerView.frame.height
+        guard width > 0, height > 0 else { return 0 }
+        
+        // using relative moved length to calculate percent
+        switch panDirection {
+        case .toLeft:
+            return abs(min(translation.x, 0)) / width
+        case .toRight:
+            return abs(max(translation.x, 0)) / width
+        case .toTop:
+            return abs(min(translation.y, 0)) / height
+        case .toBottom:
+            return abs(max(translation.y, 0)) / height
+        }
+    }
 }
+
+
