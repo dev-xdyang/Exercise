@@ -8,13 +8,13 @@
 
 import UIKit
 
-public enum Direction {
+public enum PanDirection {
     case toLeft
     case toRight
     case toTop
     case toBottom
     
-    public var toggle: Direction {
+    public var toggle: PanDirection {
         switch self {
         case .toLeft:
             return .toRight
@@ -28,9 +28,9 @@ public enum Direction {
     }
 }
 
-// MARK: - Direction match
+// MARK: - PanDirection match
 extension UIPanGestureRecognizer {
-    public func isMatch(direction: Direction) -> Bool {
+    public func isMatch(direction: PanDirection) -> Bool {
         guard let targetView = self.view else { return false }
         let velocityValue = velocity(in: targetView)
         switch direction {

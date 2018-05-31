@@ -10,10 +10,10 @@ import UIKit
 
 class PanInterativeController: UIPercentDrivenInteractiveTransition  {
     private var transitionContext: UIViewControllerContextTransitioning?
-    private let panDirection: Direction
+    private let panDirection: PanDirection
     private let panGesture: UIPanGestureRecognizer
     
-    init(panDirection: Direction,
+    init(panDirection: PanDirection,
          panGesture: UIPanGestureRecognizer) {
         self.panGesture = panGesture
         self.panDirection = panDirection

@@ -39,7 +39,7 @@ extension PushPopInteractiveTransitionNavigationController {
 
 class PushPopInteractiveTransitionNavigationController: UINavigationController {
     init(rootViewController: UIViewController,
-         pushDirection: Direction = .toLeft) {
+         pushDirection: PanDirection = .toLeft) {
         self.pushDirection = pushDirection
         super.init(rootViewController: rootViewController)
         modalPresentationStyle = .fullScreen
@@ -56,7 +56,7 @@ class PushPopInteractiveTransitionNavigationController: UINavigationController {
     
     // MARK: - Private
     private let panInteriveDelegate = PanInterativeDelegate()
-    private var pushDirection: Direction = .toLeft
+    private var pushDirection: PanDirection = .toLeft
     private var panGesture: UIPanGestureRecognizer?
     
     @objc private func dismissPanGestureAction(gesture: UIPanGestureRecognizer) {

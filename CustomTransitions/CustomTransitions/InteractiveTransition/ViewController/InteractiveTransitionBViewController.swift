@@ -9,7 +9,7 @@
 import UIKit
 
 class InteractiveTransitionBViewController: UIViewController {
-    private let panDirection: Direction = .toRight
+    private let panDirection: PanDirection = .toRight
     private var panGesture: UIPanGestureRecognizer!
     
     override func viewDidLoad() {

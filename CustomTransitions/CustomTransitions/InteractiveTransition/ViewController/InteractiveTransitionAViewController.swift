@@ -9,7 +9,7 @@
 import UIKit
 
 class InteractiveTransitionAViewController: UIViewController {
-    private let panDirection: Direction = .toLeft
+    private let panDirection: PanDirection = .toLeft
     private var panGesture: UIPanGestureRecognizer!
     private let panInteriveDelegate = PanInterativeDelegate()
     

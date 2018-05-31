@@ -10,9 +10,9 @@ import UIKit
 
 class PushPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     private let shiftRate: CGFloat = 7 / 30
-    private let direction: Direction
+    private let direction: PanDirection
     
-    init(direction: Direction) {
+    init(direction: PanDirection) {
         self.direction = direction
     }
     
