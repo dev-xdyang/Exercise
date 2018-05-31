@@ -13,6 +13,19 @@ public enum Direction {
     case toRight
     case toTop
     case toBottom
+    
+    public var toggle: Direction {
+        switch self {
+        case .toLeft:
+            return .toRight
+        case .toRight:
+            return .toLeft
+        case .toTop:
+            return .toBottom
+        case .toBottom:
+            return .toTop
+        }
+    }
 }
 
 // MARK: - Direction match

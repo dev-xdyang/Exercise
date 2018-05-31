@@ -19,12 +19,6 @@ class NavInteractiveTransitionBViewController: UIViewController {
     }
     
     @IBAction private func dismissButtonPressed(_ sender: AnyObject) {
-        if let nav = navigationController as? PushPopInteractiveTransitionNavigationController,
-            let delegate = nav.transitioningDelegate as? PanInterativeDelegate {
-            delegate.panGesture = nil
-            delegate.panDirection = .toRight
-        }
-        
         dismiss(animated: true, completion: nil)
     }
 }

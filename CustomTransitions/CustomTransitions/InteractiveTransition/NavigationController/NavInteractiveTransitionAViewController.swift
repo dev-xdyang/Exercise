@@ -9,9 +9,7 @@
 import UIKit
 
 class NavInteractiveTransitionAViewController: UIViewController {
-    private let panDirection: Direction = .toLeft
     private var panGesture: UIPanGestureRecognizer!
-    private let panInteriveDelegate = PanInterativeDelegate()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,22 +20,14 @@ class NavInteractiveTransitionAViewController: UIViewController {
     
     @objc private func panGestureAction(gesture: UIPanGestureRecognizer) {
         guard gesture.state == .began,
-            gesture.isMatch(direction: panDirection) else { return }
+            gesture.isMatch(direction: .toLeft) else { return }
         presentButtonPressed(gesture)
     }
     
     @IBAction private func presentButtonPressed(_ sender: AnyObject) {
         guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "NavInteractiveTransitionBViewController") else { return }
         let nav = PushPopInteractiveTransitionNavigationController(rootViewController: vc)
-        nav.modalPresentationStyle = .fullScreen
-        nav.transitioningDelegate = panInteriveDelegate
-        panInteriveDelegate.panDirection = panDirection
-        if sender.isKind(of: UIPanGestureRecognizer.self) {
-            panInteriveDelegate.panGesture = panGesture
-        } else {
-            panInteriveDelegate.panGesture = nil
-        }
-        
-        present(nav, animated: true, completion: nil)
+        let gesture = sender.isKind(of: UIPanGestureRecognizer.self) ? panGesture : nil
+        nav.push(fromViewController: self, panGesture: gesture, animated: true)
     }
 }
