@@ -9,7 +9,8 @@
 import UIKit
 
 class PushPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
-    let direction: Direction
+    private let shiftRate: CGFloat = 7 / 30
+    private let direction: Direction
     
     init(direction: Direction) {
         self.direction = direction
@@ -52,16 +53,20 @@ class PushPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             containerView.addSubview(toView)
         } else {
             fromView.frame = fromVCFrame
-            toView.frame = toVCFrame
+            toView.frame = toVCFrame.offsetBy(dx: (toVCFrame.width * offset.dx * self.shiftRate),
+                                              dy: (toVCFrame.height * offset.dy * self.shiftRate))
             containerView.insertSubview(toView, belowSubview: fromView)
         }
         
         UIView.animate(withDuration: duration, animations: {
             if isPresenting {
+                fromView.frame = fromVCFrame.offsetBy(dx: -(fromVCFrame.width * offset.dx * self.shiftRate),
+                                                      dy: -(fromVCFrame.height * offset.dy * self.shiftRate))
                 toView.frame = toVCFrame
             } else {
                 fromView.frame = fromVCFrame.offsetBy(dx: -(fromVCFrame.width * offset.dx + offset.dx),
                                                     dy: -(fromVCFrame.height * offset.dy + offset.dy))
+                toView.frame = toVCFrame
             }
         }) { _ in
             let canceled = transitionContext.transitionWasCancelled
