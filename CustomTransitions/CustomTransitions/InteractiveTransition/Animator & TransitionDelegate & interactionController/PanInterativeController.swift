@@ -33,9 +33,10 @@ class PanInterativeController: UIPercentDrivenInteractiveTransition  {
         case .began:
             break
         case .changed:
-            update(percent(gesture: gesture))
+            update(percent(gesture: gesture, velocity: .zero))
         case .ended:
-            if percent(gesture: gesture) > 0.5 {
+            let velocity = gesture.velocity(in: transitionContext?.containerView)
+            if percent(gesture: gesture, velocity: velocity) > 0.5 {
                 finish()
             } else {
                 cancel()
@@ -45,7 +46,7 @@ class PanInterativeController: UIPercentDrivenInteractiveTransition  {
         }
     }
     
-    private func percent(gesture: UIPanGestureRecognizer) -> CGFloat {
+    private func percent(gesture: UIPanGestureRecognizer, velocity: CGPoint) -> CGFloat {
         guard let context = transitionContext else { return 0 }
         
         let containerView = context.containerView
@@ -57,13 +58,13 @@ class PanInterativeController: UIPercentDrivenInteractiveTransition  {
         // using relative moved length to calculate percent
         switch panDirection {
         case .toLeft:
-            return abs(min(translation.x, 0)) / width
+            return abs(min(translation.x + velocity.x, 0)) / width
         case .toRight:
-            return abs(max(translation.x, 0)) / width
+            return abs(max(translation.x + velocity.x, 0)) / width
         case .toTop:
-            return abs(min(translation.y, 0)) / height
+            return abs(min(translation.y + velocity.y, 0)) / height
         case .toBottom:
-            return abs(max(translation.y, 0)) / height
+            return abs(max(translation.y + velocity.y, 0)) / height
         }
     }
 }
