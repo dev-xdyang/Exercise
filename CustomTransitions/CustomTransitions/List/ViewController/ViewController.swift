@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     private let itemList = ["dissolve", "half way spring", "present: half way spring; dismiss: dissolve",
-                            "interative: Swipe"]
+                            "interative: Swipe -> ViewController", "interative: Swipe -> UINavigationController"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +66,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             vc = normalVC
         case 3:
             vc = self.storyboard?.instantiateViewController(withIdentifier: "InteractiveTransitionAViewController") as? InteractiveTransitionAViewController
+        case 4:
+            vc = self.storyboard?.instantiateViewController(withIdentifier: "NavInteractiveTransitionAViewController") as? NavInteractiveTransitionAViewController
         default:
             break
         }

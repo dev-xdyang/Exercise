@@ -25,6 +25,9 @@
 		CB12EF4020BECF3100D4E160 /* PushPopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB12EF3F20BECF3100D4E160 /* PushPopAnimator.swift */; };
 		CB12EF4220BECF5500D4E160 /* PanInterativeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB12EF4120BECF5500D4E160 /* PanInterativeDelegate.swift */; };
 		CB12EF4420BECF6600D4E160 /* PanInterativeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB12EF4320BECF6600D4E160 /* PanInterativeController.swift */; };
+		CBDAC3AA20BFF345006001A8 /* NavInteractiveTransitionBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDAC3A820BFF345006001A8 /* NavInteractiveTransitionBViewController.swift */; };
+		CBDAC3AB20BFF345006001A8 /* NavInteractiveTransitionAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDAC3A920BFF345006001A8 /* NavInteractiveTransitionAViewController.swift */; };
+		CBDAC3AD20BFF38C006001A8 /* PushPopInteractiveTransitionNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDAC3AC20BFF38C006001A8 /* PushPopInteractiveTransitionNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +72,9 @@
 		CB12EF3F20BECF3100D4E160 /* PushPopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushPopAnimator.swift; sourceTree = "<group>"; };
 		CB12EF4120BECF5500D4E160 /* PanInterativeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanInterativeDelegate.swift; sourceTree = "<group>"; };
 		CB12EF4320BECF6600D4E160 /* PanInterativeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanInterativeController.swift; sourceTree = "<group>"; };
+		CBDAC3A820BFF345006001A8 /* NavInteractiveTransitionBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavInteractiveTransitionBViewController.swift; sourceTree = "<group>"; };
+		CBDAC3A920BFF345006001A8 /* NavInteractiveTransitionAViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavInteractiveTransitionAViewController.swift; sourceTree = "<group>"; };
+		CBDAC3AC20BFF38C006001A8 /* PushPopInteractiveTransitionNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushPopInteractiveTransitionNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,8 +203,8 @@
 		CB12EF3920BEC0D900D4E160 /* InteractiveTransition */ = {
 			isa = PBXGroup;
 			children = (
-				CB12EF3A20BEC13800D4E160 /* InteractiveTransitionAViewController.swift */,
-				CB12EF3B20BEC13800D4E160 /* InteractiveTransitionBViewController.swift */,
+				CBDAC3A720BFF31F006001A8 /* NavigationController */,
+				CBDAC3A620BFF312006001A8 /* ViewController */,
 				CB12EF3E20BEC13B00D4E160 /* Animator & TransitionDelegate & interactionController */,
 			);
 			path = InteractiveTransition;
@@ -212,6 +218,25 @@
 				CB12EF4320BECF6600D4E160 /* PanInterativeController.swift */,
 			);
 			path = "Animator & TransitionDelegate & interactionController";
+			sourceTree = "<group>";
+		};
+		CBDAC3A620BFF312006001A8 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CB12EF3A20BEC13800D4E160 /* InteractiveTransitionAViewController.swift */,
+				CB12EF3B20BEC13800D4E160 /* InteractiveTransitionBViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		CBDAC3A720BFF31F006001A8 /* NavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				CBDAC3A920BFF345006001A8 /* NavInteractiveTransitionAViewController.swift */,
+				CBDAC3A820BFF345006001A8 /* NavInteractiveTransitionBViewController.swift */,
+				CBDAC3AC20BFF38C006001A8 /* PushPopInteractiveTransitionNavigationController.swift */,
+			);
+			path = NavigationController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,15 +372,18 @@
 			files = (
 				CB12EF3420BE8C9E00D4E160 /* HalfWaySpringTransitionAnimator.swift in Sources */,
 				CB12EF3820BE8EB300D4E160 /* TransitionCommonDefine.swift in Sources */,
+				CBDAC3AB20BFF345006001A8 /* NavInteractiveTransitionAViewController.swift in Sources */,
 				CB12EF3C20BEC13800D4E160 /* InteractiveTransitionAViewController.swift in Sources */,
 				CB12EF4220BECF5500D4E160 /* PanInterativeDelegate.swift in Sources */,
 				CB12EF3D20BEC13800D4E160 /* InteractiveTransitionBViewController.swift in Sources */,
 				CB12EF2D20BE8C3C00D4E160 /* NormalTransitionAViewController.swift in Sources */,
 				CB12EEFA20BE7D8400D4E160 /* ViewController.swift in Sources */,
+				CBDAC3AA20BFF345006001A8 /* NavInteractiveTransitionBViewController.swift in Sources */,
 				CB12EF3620BE8CB800D4E160 /* DissolveTransitionAnimator.swift in Sources */,
 				CB12EF4420BECF6600D4E160 /* PanInterativeController.swift in Sources */,
 				CB12EEF820BE7D8400D4E160 /* AppDelegate.swift in Sources */,
 				CB12EF2A20BE88BB00D4E160 /* ListTableViewCell.swift in Sources */,
+				CBDAC3AD20BFF38C006001A8 /* PushPopInteractiveTransitionNavigationController.swift in Sources */,
 				CB12EF4020BECF3100D4E160 /* PushPopAnimator.swift in Sources */,
 				CB12EF2F20BE8C5600D4E160 /* NormalTransitionBViewController.swift in Sources */,
 			);
