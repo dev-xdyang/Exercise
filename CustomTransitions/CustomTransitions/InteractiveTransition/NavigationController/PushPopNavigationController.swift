@@ -1,5 +1,5 @@
 //
-//  PushPopInteractiveTransitionNavigationController.swift
+//  PushPopNavigationController.swift
 //  CustomTransitions
 //
 //  Created by yang on 2018/5/31.
@@ -9,7 +9,7 @@
 import UIKit
 
 // MARK: - Public
-extension PushPopInteractiveTransitionNavigationController {
+extension PushPopNavigationController {
     public func push(fromViewController: UIViewController,
                      panGesture: UIPanGestureRecognizer?,
                      animated flag: Bool,
@@ -37,7 +37,7 @@ extension PushPopInteractiveTransitionNavigationController {
     }
 }
 
-class PushPopInteractiveTransitionNavigationController: UINavigationController {
+class PushPopNavigationController: UINavigationController {
     init(rootViewController: UIViewController,
          pushDirection: PanDirection = .toLeft) {
         self.pushDirection = pushDirection

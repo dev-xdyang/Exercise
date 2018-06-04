@@ -13,7 +13,7 @@ class NavInteractiveTransitionBViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
         
-        if let nav = navigationController as? PushPopInteractiveTransitionNavigationController {
+        if let nav = navigationController as? PushPopNavigationController {
             nav.bindInteractiveVC(controller: self)
         }
     }

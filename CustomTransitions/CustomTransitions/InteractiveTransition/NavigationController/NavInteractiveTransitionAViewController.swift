@@ -26,7 +26,7 @@ class NavInteractiveTransitionAViewController: UIViewController {
     
     @IBAction private func presentButtonPressed(_ sender: AnyObject) {
         guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "NavInteractiveTransitionBViewController") else { return }
-        let nav = PushPopInteractiveTransitionNavigationController(rootViewController: vc)
+        let nav = PushPopNavigationController(rootViewController: vc)
         let gesture = sender.isKind(of: UIPanGestureRecognizer.self) ? panGesture : nil
         nav.push(fromViewController: self, panGesture: gesture, animated: true)
     }

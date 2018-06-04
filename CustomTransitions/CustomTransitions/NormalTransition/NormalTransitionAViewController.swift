@@ -42,7 +42,7 @@ extension NormalTransitionAViewController: UIViewControllerTransitioningDelegate
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        switch presentingAnimatorType {
+        switch dismissAnimatorType {
         case .dissolve:
             return DissolveTransitionAnimator()
         case .halfWaySpring:
