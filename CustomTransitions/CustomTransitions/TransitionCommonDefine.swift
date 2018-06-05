@@ -35,13 +35,13 @@ extension UIPanGestureRecognizer {
         let velocityValue = velocity(in: targetView)
         switch direction {
         case .toLeft:
-            return velocityValue.x < 0
+            return velocityValue.x < 0 && abs(velocityValue.y) < 250
         case .toRight:
-            return velocityValue.x > 0
+            return velocityValue.x > 0 && abs(velocityValue.y) < 250
         case .toTop:
-            return velocityValue.y < 0
+            return velocityValue.y < 0 && abs(velocityValue.x) < 250
         case .toBottom:
-            return velocityValue.y > 0
+            return velocityValue.y > 0 && abs(velocityValue.x) < 250
         }
     }
 }
