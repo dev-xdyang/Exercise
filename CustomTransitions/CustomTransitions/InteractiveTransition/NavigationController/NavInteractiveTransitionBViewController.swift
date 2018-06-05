@@ -14,7 +14,7 @@ class NavInteractiveTransitionBViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: false)
         
         if let nav = navigationController as? PushPopNavigationController {
-            nav.bindInteractiveVC(controller: self)
+            nav.addDismissPanGestureTo(controller: self)
         }
     }
     

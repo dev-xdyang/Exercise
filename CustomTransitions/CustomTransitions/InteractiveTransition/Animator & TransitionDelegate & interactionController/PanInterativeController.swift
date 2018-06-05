@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PanInterativeController: UIPercentDrivenInteractiveTransition  {
+class PanInterativeController: UIPercentDrivenInteractiveTransition {
     private var transitionContext: UIViewControllerContextTransitioning?
     private let panDirection: PanDirection
     private let panGesture: UIPanGestureRecognizer
@@ -35,8 +35,10 @@ class PanInterativeController: UIPercentDrivenInteractiveTransition  {
         case .changed:
             update(percent(gesture: gesture, velocity: .zero))
         case .ended:
-            let velocity = gesture.velocity(in: transitionContext?.containerView)
-            if percent(gesture: gesture, velocity: velocity) > 0.5 {
+            let view = transitionContext?.containerView == nil ? transitionContext?.containerView : gesture.view
+            let velocity = gesture.velocity(in: view)
+            let percentValue = percent(gesture: gesture, velocity: velocity)
+            if percentValue > 0.5 {
                 finish()
             } else {
                 cancel()
@@ -47,13 +49,17 @@ class PanInterativeController: UIPercentDrivenInteractiveTransition  {
     }
     
     private func percent(gesture: UIPanGestureRecognizer, velocity: CGPoint) -> CGFloat {
-        guard let context = transitionContext else { return 0 }
+        var translation: CGPoint = .zero
         
-        let containerView = context.containerView
-        let translation = gesture.translation(in: containerView)
-        let width = containerView.frame.width
-        let height = containerView.frame.height
-        guard width > 0, height > 0 else { return 0 }
+        var width = gesture.view?.frame.width ?? UIScreen.main.bounds.width
+        var height = gesture.view?.frame.height ?? UIScreen.main.bounds.height
+        if let context = transitionContext {
+            let containerView = context.containerView
+            translation = gesture.translation(in: containerView)
+            
+            width = containerView.frame.width
+            height = containerView.frame.height
+        }
         
         // using relative moved length to calculate percent
         switch panDirection {
@@ -68,5 +74,3 @@ class PanInterativeController: UIPercentDrivenInteractiveTransition  {
         }
     }
 }
-
-

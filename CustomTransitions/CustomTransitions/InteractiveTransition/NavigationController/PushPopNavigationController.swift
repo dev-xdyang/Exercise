@@ -1,7 +1,7 @@
 //
 //  PushPopNavigationController.swift
 //  CustomTransitions
-//
+//  description: 切换行为同push/pop、可交互的NavigationController
 //  Created by yang on 2018/5/31.
 //  Copyright © 2018 yang. All rights reserved.
 //
@@ -30,27 +30,30 @@ extension PushPopNavigationController {
         dismiss(animated: flag, completion: completion)
     }
     
-    public func bindInteractiveVC(controller: UIViewController) {
+    public func addDismissPanGestureTo(controller: UIViewController) {
         let dismissPanGesture = UIPanGestureRecognizer(target: self, action: #selector(dismissPanGestureAction(gesture:)))
-        controller.view.addGestureRecognizer(dismissPanGesture)
+        dismissPanGesture.delegate = self
+        controller.view?.addGestureRecognizer(dismissPanGesture)
         self.panGesture = dismissPanGesture
     }
 }
 
-class PushPopNavigationController: UINavigationController {
-    init(rootViewController: UIViewController,
-         pushDirection: PanDirection = .toLeft) {
-        self.pushDirection = pushDirection
+public class PushPopNavigationController: UINavigationController {
+    public init(rootViewController: UIViewController,
+                pushDirection: PanDirection = .toLeft) {
+        self.rootVC = rootViewController
         super.init(rootViewController: rootViewController)
         modalPresentationStyle = .fullScreen
         transitioningDelegate = panInteriveDelegate
+        self.pushDirection = pushDirection
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        self.rootVC = UIViewController()
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -58,6 +61,18 @@ class PushPopNavigationController: UINavigationController {
     private let panInteriveDelegate = PanInterativeDelegate()
     private var pushDirection: PanDirection = .toLeft
     private var panGesture: UIPanGestureRecognizer?
+    private let rootVC: UIViewController
+}
+
+extension PushPopNavigationController: UIGestureRecognizerDelegate {
+    public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        if let pan = gestureRecognizer as? UIPanGestureRecognizer,
+            pan == panGesture {
+            return pan.isMatch(direction: pushDirection.toggle)
+        }
+        
+        return true
+    }
     
     @objc private func dismissPanGestureAction(gesture: UIPanGestureRecognizer) {
         let panDirection = pushDirection.toggle

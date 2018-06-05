@@ -25,7 +25,7 @@ class PushPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             let toVC = transitionContext.viewController(forKey: .to),
             let fromView = transitionContext.view(forKey: .from),
             let toView = transitionContext.view(forKey: .to) else {
-            return
+                return
         }
         
         let duration = transitionDuration(using: transitionContext)
@@ -65,7 +65,7 @@ class PushPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                 toView.frame = toVCFrame
             } else {
                 fromView.frame = fromVCFrame.offsetBy(dx: -(fromVCFrame.width * offset.dx + offset.dx),
-                                                    dy: -(fromVCFrame.height * offset.dy + offset.dy))
+                                                      dy: -(fromVCFrame.height * offset.dy + offset.dy))
                 toView.frame = toVCFrame
             }
         }) { _ in
