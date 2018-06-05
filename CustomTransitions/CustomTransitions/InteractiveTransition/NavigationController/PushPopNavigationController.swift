@@ -58,7 +58,7 @@ public class PushPopNavigationController: UINavigationController {
     }
     
     // MARK: - Private
-    private let panInteriveDelegate = PanInterativeDelegate()
+    private let panInteriveDelegate = PushPopNavigationInteractiveTransition()
     private var pushDirection: PanDirection = .toLeft
     private var panGesture: UIPanGestureRecognizer?
     private let rootVC: UIViewController
@@ -78,7 +78,7 @@ extension PushPopNavigationController: UIGestureRecognizerDelegate {
         let panDirection = pushDirection.toggle
         guard gesture.state == .began,
             gesture.isMatch(direction: panDirection),
-            let panInteriveDelegate = transitioningDelegate as? PanInterativeDelegate else { return }
+            let panInteriveDelegate = transitioningDelegate as? PushPopNavigationInteractiveTransition else { return }
         panInteriveDelegate.panDirection = panDirection
         panInteriveDelegate.panGesture = panGesture
         

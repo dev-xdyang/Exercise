@@ -1,5 +1,5 @@
 //
-//  PanInterativeDelegate.swift
+//  PushPopNavigationInteractiveTransition.swift
 //  CustomTransitions
 //
 //  Created by yang on 2018/5/30.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PanInterativeDelegate: NSObject, UIViewControllerTransitioningDelegate {
+class PushPopNavigationInteractiveTransition: NSObject, UIViewControllerTransitioningDelegate {
     var panDirection: PanDirection = .toLeft
     var panGesture: UIPanGestureRecognizer?
     

@@ -11,7 +11,7 @@ import UIKit
 class InteractiveTransitionAViewController: UIViewController {
     private let panDirection: PanDirection = .toLeft
     private var panGesture: UIPanGestureRecognizer!
-    private let panInteriveDelegate = PanInterativeDelegate()
+    private let panInteriveDelegate = PushPopNavigationInteractiveTransition()
     
     override func viewDidLoad() {
         super.viewDidLoad()

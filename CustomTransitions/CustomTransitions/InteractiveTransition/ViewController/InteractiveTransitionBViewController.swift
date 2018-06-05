@@ -27,7 +27,7 @@ class InteractiveTransitionBViewController: UIViewController {
     }
     
     @IBAction private func dismissButtonPressed(_ sender: AnyObject) {
-        if let panInteriveDelegate = transitioningDelegate as? PanInterativeDelegate {
+        if let panInteriveDelegate = transitioningDelegate as? PushPopNavigationInteractiveTransition {
             panInteriveDelegate.panDirection = panDirection
             if sender.isKind(of: UIPanGestureRecognizer.self) {
                 panInteriveDelegate.panGesture = panGesture
