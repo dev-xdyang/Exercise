@@ -39,6 +39,20 @@ extension PushPopNavigationController {
 }
 
 public class PushPopNavigationController: UINavigationController {
+    /// 不是交互dimiss的时候，是否使用系统默认的动画； 默认是false
+    public var isUseDefaultAnimatorWhenDismissNotInteractive = false {
+        didSet {
+            panInteriveDelegate.isUseDefaultAnimatorWhenDismissNotInteractive = isUseDefaultAnimatorWhenDismissNotInteractive
+        }
+    }
+    
+    /// 不是交互present的时候，是否使用系统默认的动画, 要让改设置项有效在调用push函数时传入的panGesture需要为nil; 默认是false
+    public var isUseDefaultAnimatorWhenPresentNotInteractive = false {
+        didSet {
+            panInteriveDelegate.isUseDefaultAnimatorWhenPresentNotInteractive = isUseDefaultAnimatorWhenPresentNotInteractive
+        }
+    }
+    
     public init(rootViewController: UIViewController,
                 pushDirection: PanDirection = .toLeft) {
         self.rootVC = rootViewController

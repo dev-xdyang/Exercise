@@ -11,8 +11,13 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
-    private let itemList = ["dissolve", "half way spring", "present: half way spring; dismiss: dissolve",
-                            "interative: Swipe -> ViewController", "interative: Swipe -> UINavigationController"]
+    private let itemList = ["dissolve",
+                            "half way spring",
+                            "present: half way spring; dismiss: dissolve",
+                            "interative: Swipe -> ViewController",
+                            "interative: Swipe -> UINavigationController",
+                            " swipe present: push animator \n not interative present: push animator \n swipe dismiss: pop animator \n not interative dismiss: default animator",
+                            " swipe present: push animator \n not interative present: default animator \n swipe dismiss: pop animator \n not interative dismiss: default animator"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +31,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 5 || indexPath.row == 6 {
+            return 100
+        }
+        
         return 50
     }
     
@@ -34,6 +43,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListTableViewCell") as! ListTableViewCell
+        cell.listLabel.numberOfLines = 0
         cell.listLabel.text = itemList[indexPath.row]
         
         return cell
@@ -68,6 +78,15 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             vc = self.storyboard?.instantiateViewController(withIdentifier: "InteractiveTransitionAViewController") as? InteractiveTransitionAViewController
         case 4:
             vc = self.storyboard?.instantiateViewController(withIdentifier: "NavInteractiveTransitionAViewController") as? NavInteractiveTransitionAViewController
+        case 5:
+            let tmpVC = self.storyboard?.instantiateViewController(withIdentifier: "NavInteractiveTransitionAViewController") as? NavInteractiveTransitionAViewController
+            tmpVC?.isUseDefaultAnimatorWhenDismissNotInteractive = true
+            vc = tmpVC
+        case 6:
+            let tmpVC = self.storyboard?.instantiateViewController(withIdentifier: "NavInteractiveTransitionAViewController") as? NavInteractiveTransitionAViewController
+            tmpVC?.isUseDefaultAnimatorWhenDismissNotInteractive = true
+            tmpVC?.isUseDefaultAnimatorWhenPresentNotInteractive = true
+            vc = tmpVC
         default:
             break
         }

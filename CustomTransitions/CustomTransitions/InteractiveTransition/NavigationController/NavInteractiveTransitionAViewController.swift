@@ -10,6 +10,8 @@ import UIKit
 
 class NavInteractiveTransitionAViewController: UIViewController {
     private var panGesture: UIPanGestureRecognizer!
+    var isUseDefaultAnimatorWhenDismissNotInteractive = false
+    var isUseDefaultAnimatorWhenPresentNotInteractive = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +29,8 @@ class NavInteractiveTransitionAViewController: UIViewController {
     @IBAction private func presentButtonPressed(_ sender: AnyObject) {
         guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "NavInteractiveTransitionBViewController") else { return }
         let nav = PushPopNavigationController(rootViewController: vc)
+        nav.isUseDefaultAnimatorWhenDismissNotInteractive = isUseDefaultAnimatorWhenDismissNotInteractive
+        nav.isUseDefaultAnimatorWhenPresentNotInteractive = isUseDefaultAnimatorWhenPresentNotInteractive
         let gesture = sender.isKind(of: UIPanGestureRecognizer.self) ? panGesture : nil
         nav.push(fromViewController: self, panGesture: gesture, animated: true)
     }

@@ -10,16 +10,26 @@ import UIKit
 
 class PushPopNavigationInteractiveTransition: NSObject, UIViewControllerTransitioningDelegate {
     var panDirection: PanDirection = .toLeft
+    var isUseDefaultAnimatorWhenDismissNotInteractive = false
+    var isUseDefaultAnimatorWhenPresentNotInteractive = false
     var panGesture: UIPanGestureRecognizer?
     
     func animationController(forPresented presented: UIViewController,
                              presenting: UIViewController,
                              source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return PushPopAnimator(direction: panDirection)
+        if panGesture == nil, isUseDefaultAnimatorWhenPresentNotInteractive {
+            return nil
+        } else {
+            return PushPopAnimator(direction: panDirection)
+        }
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return PushPopAnimator(direction: panDirection)
+        if panGesture == nil, isUseDefaultAnimatorWhenDismissNotInteractive {
+            return nil
+        } else {
+            return PushPopAnimator(direction: panDirection)
+        }
     }
     
     func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
