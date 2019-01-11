@@ -1,2 +1,2 @@
 # Exercise
-some exercise code for me
+some public exercise code for me
